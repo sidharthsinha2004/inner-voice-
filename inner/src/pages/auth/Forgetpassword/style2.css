@@ -1,0 +1,1716 @@
+@import url(
+  "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+);
+
+
+/* =====================================
+   VARIABLES
+===================================== */
+
+:root {
+  --forgot-green: #275a49;
+  --forgot-dark: #193f33;
+  --forgot-medium: #34705e;
+
+  --forgot-mint: #9dd4bf;
+  --forgot-light-mint: #e1f2eb;
+
+  --forgot-text: #17201d;
+  --forgot-muted: #78827e;
+
+  --forgot-border: #dce4e0;
+
+  --forgot-ease:
+    cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+
+/* =====================================
+   RESET
+===================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+
+  margin: 0;
+}
+
+
+body {
+  font-family:
+    "Inter",
+    sans-serif;
+
+  -webkit-font-smoothing:
+    antialiased;
+}
+
+
+/* =====================================
+   PAGE
+===================================== */
+
+.forgot-page {
+  position: relative;
+
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  padding: 38px 20px;
+
+  overflow: hidden;
+
+  color: var(--forgot-text);
+
+  background:
+    radial-gradient(
+      circle at 95% 8%,
+      rgba(157, 212, 191, 0.3),
+      transparent 27%
+    ),
+
+    radial-gradient(
+      circle at 5% 95%,
+      rgba(39, 90, 73, 0.14),
+      transparent 30%
+    ),
+
+    linear-gradient(
+      135deg,
+      #ffffff,
+      #f6faf8
+    );
+}
+
+
+/* Subtle grid */
+
+.forgot-page::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  opacity: 0.28;
+
+  background-image:
+    linear-gradient(
+      rgba(39, 90, 73, 0.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(39, 90, 73, 0.025) 1px,
+      transparent 1px
+    );
+
+  background-size:
+    45px 45px;
+
+  pointer-events: none;
+}
+
+
+/* =====================================
+   BACKGROUND CIRCLES
+===================================== */
+
+.forgot-bg-circle {
+  position: absolute;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+
+.forgot-bg-one {
+  width: 470px;
+  height: 470px;
+
+  right: -200px;
+  top: -240px;
+
+  background:
+    rgba(157, 212, 191, 0.12);
+
+  animation:
+    forgotBgOne
+    10s
+    ease-in-out
+    infinite
+    alternate;
+}
+
+
+.forgot-bg-two {
+  width: 430px;
+  height: 430px;
+
+  left: -190px;
+  bottom: -250px;
+
+  background:
+    rgba(39, 90, 73, 0.07);
+
+  animation:
+    forgotBgTwo
+    12s
+    ease-in-out
+    infinite
+    alternate;
+}
+
+
+@keyframes forgotBgOne {
+
+  to {
+    transform:
+      translate(-80px, 100px)
+      scale(1.15);
+  }
+
+}
+
+
+@keyframes forgotBgTwo {
+
+  to {
+    transform:
+      translate(90px, -70px)
+      scale(1.15);
+  }
+
+}
+
+
+/* =====================================
+   MAIN CARD
+===================================== */
+
+.forgot-card {
+  position: relative;
+
+  z-index: 5;
+
+  width: 100%;
+  max-width: 940px;
+
+  min-height: 590px;
+
+  display: grid;
+
+  grid-template-columns:
+    45% 55%;
+
+  overflow: hidden;
+
+  border:
+    1px solid
+    rgba(39, 90, 73, 0.08);
+
+  border-radius: 31px;
+
+  background: white;
+
+  box-shadow:
+    0 35px 80px
+    rgba(25, 63, 51, 0.13),
+
+    0 10px 30px
+    rgba(25, 63, 51, 0.05);
+
+  animation:
+    forgotCardEnter
+    0.75s
+    var(--forgot-ease)
+    both;
+}
+
+
+@keyframes forgotCardEnter {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(30px)
+      scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+
+}
+
+
+/* =====================================
+   LEFT PANEL
+===================================== */
+
+.forgot-left {
+  position: relative;
+
+  min-height: 590px;
+
+  display: flex;
+  flex-direction: column;
+
+  padding:
+    43px 41px
+    39px;
+
+  overflow: hidden;
+
+  color: white;
+
+  background:
+    linear-gradient(
+      145deg,
+      #245f4d 0%,
+      #1d5544 45%,
+      #174a3b 100%
+    );
+}
+
+
+/* Top glow */
+
+.forgot-left::before {
+  content: "";
+
+  position: absolute;
+
+  width: 360px;
+  height: 360px;
+
+  top: -190px;
+  left: -160px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(157, 212, 191, 0.14),
+      transparent 68%
+    );
+}
+
+
+/* =====================================
+   LEFT DECORATION
+===================================== */
+
+.forgot-decoration {
+  position: absolute;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+
+.decoration-one {
+  width: 260px;
+  height: 260px;
+
+  right: -130px;
+  bottom: -95px;
+
+  border:
+    1px solid
+    rgba(157, 212, 191, 0.16);
+
+  animation:
+    forgotCircleMove
+    7s
+    ease-in-out
+    infinite
+    alternate;
+}
+
+
+.decoration-two {
+  width: 180px;
+  height: 180px;
+
+  right: -75px;
+  bottom: -35px;
+
+  border:
+    1px solid
+    rgba(157, 212, 191, 0.08);
+}
+
+
+@keyframes forgotCircleMove {
+
+  to {
+    transform:
+      translate(-18px, -20px);
+  }
+
+}
+
+
+/* =====================================
+   LOGO
+===================================== */
+
+.forgot-logo {
+  position: relative;
+
+  z-index: 3;
+
+  width: fit-content;
+
+  color: white;
+
+  font-size: 21px;
+
+  font-weight: 800;
+
+  letter-spacing: -1px;
+
+  text-decoration: none;
+
+  animation:
+    forgotLogoEnter
+    0.6s
+    0.1s
+    both;
+}
+
+
+.forgot-logo span {
+  color: #a5dec9;
+}
+
+
+@keyframes forgotLogoEnter {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(-12px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+
+}
+
+
+/* =====================================
+   LEFT CONTENT
+===================================== */
+
+.forgot-left-content {
+  position: relative;
+
+  z-index: 3;
+
+  margin: auto 0;
+
+  animation:
+    forgotLeftEnter
+    0.7s
+    0.2s
+    both;
+}
+
+
+@keyframes forgotLeftEnter {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateX(-20px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateX(0);
+  }
+
+}
+
+
+/* =====================================
+   LEFT LOCK
+===================================== */
+
+.forgot-lock-box {
+  width: 57px;
+  height: 57px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 32px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.14);
+
+  border-radius: 17px;
+
+  background:
+    rgba(255, 255, 255, 0.1);
+
+  backdrop-filter:
+    blur(10px);
+
+  animation:
+    forgotLockFloat
+    3.5s
+    ease-in-out
+    infinite;
+}
+
+
+.forgot-lock-box svg {
+  width: 25px;
+  height: 25px;
+}
+
+
+@keyframes forgotLockFloat {
+
+  0%,
+  100% {
+    transform:
+      translateY(0);
+  }
+
+  50% {
+    transform:
+      translateY(-6px);
+  }
+
+}
+
+
+/* =====================================
+   LEFT TEXT
+===================================== */
+
+.forgot-eyebrow {
+  display: block;
+
+  margin-bottom: 10px;
+
+  color:
+    rgba(157, 212, 191, 0.65);
+
+  font-size: 9px;
+
+  font-weight: 700;
+
+  letter-spacing: 1.6px;
+}
+
+
+.forgot-left-content h1 {
+  max-width: 360px;
+
+  margin:
+    0
+    0
+    20px;
+
+  color: white;
+
+  font-size: 39px;
+
+  line-height: 1.06;
+
+  font-weight: 750;
+
+  letter-spacing: -2px;
+}
+
+
+.forgot-left-content h1 span {
+  color: #a5dec9;
+}
+
+
+.forgot-description {
+  max-width: 330px;
+
+  margin:
+    0
+    0
+    29px;
+
+  color:
+    rgba(255, 255, 255, 0.67);
+
+  font-size: 12.5px;
+
+  line-height: 1.7;
+}
+
+
+/* =====================================
+   PRIVACY CARD
+===================================== */
+
+.forgot-privacy-card {
+  max-width: 338px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 11px;
+
+  padding:
+    12px 14px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.11);
+
+  border-radius: 14px;
+
+  background:
+    rgba(255, 255, 255, 0.07);
+
+  backdrop-filter:
+    blur(10px);
+
+  transition:
+    200ms
+    var(--forgot-ease);
+}
+
+
+.forgot-privacy-card:hover {
+  transform:
+    translateY(-3px);
+
+  background:
+    rgba(255, 255, 255, 0.1);
+}
+
+
+.forgot-check {
+  width: 30px;
+  height: 30px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #9ddfc5;
+
+  color: #19513f;
+}
+
+
+.forgot-check svg {
+  width: 16px;
+  height: 16px;
+}
+
+
+.forgot-privacy-card strong {
+  display: block;
+
+  margin-bottom: 2px;
+
+  color: white;
+
+  font-size: 11px;
+}
+
+
+.forgot-privacy-card p {
+  margin: 0;
+
+  color:
+    rgba(255, 255, 255, 0.55);
+
+  font-size: 9.5px;
+
+  line-height: 1.4;
+}
+
+
+/* =====================================
+   LEFT FOOTER
+===================================== */
+
+.forgot-left-footer {
+  position: relative;
+
+  z-index: 3;
+
+  margin: 0;
+
+  color:
+    rgba(255, 255, 255, 0.3);
+
+  font-size: 9px;
+}
+
+
+/* =====================================
+   RIGHT SIDE
+===================================== */
+
+.forgot-right {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+
+  padding:
+    45px 65px;
+
+  background: white;
+}
+
+
+/* =====================================
+   MOBILE LOGO
+===================================== */
+
+.forgot-mobile-logo {
+  display: none;
+
+  width: fit-content;
+
+  margin-bottom: 35px;
+
+  color: var(--forgot-text);
+
+  font-size: 21px;
+
+  font-weight: 800;
+
+  letter-spacing: -1px;
+
+  text-decoration: none;
+}
+
+
+.forgot-mobile-logo span {
+  color: var(--forgot-green);
+}
+
+
+/* =====================================
+   RIGHT ICON
+===================================== */
+
+.forgot-right-icon {
+  width: 51px;
+  height: 51px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 19px;
+
+  border:
+    1px solid
+    #d9ebe4;
+
+  border-radius: 15px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #eff9f5,
+      #e2f3ec
+    );
+
+  color: var(--forgot-green);
+
+  animation:
+    forgotIconFloat
+    3.5s
+    ease-in-out
+    infinite;
+}
+
+
+.forgot-right-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+
+@keyframes forgotIconFloat {
+
+  0%,
+  100% {
+    transform:
+      translateY(0);
+  }
+
+  50% {
+    transform:
+      translateY(-4px);
+  }
+
+}
+
+
+/* =====================================
+   HEADER
+===================================== */
+
+.forgot-header {
+  margin-bottom: 26px;
+
+  animation:
+    forgotRightEnter
+    0.65s
+    0.18s
+    both;
+}
+
+
+@keyframes forgotRightEnter {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateX(18px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateX(0);
+  }
+
+}
+
+
+.forgot-step {
+  display: inline-flex;
+
+  margin-bottom: 12px;
+
+  padding:
+    6px 11px;
+
+  border-radius: 50px;
+
+  background:
+    var(--forgot-light-mint);
+
+  color: #357a63;
+
+  font-size: 9px;
+
+  font-weight: 700;
+
+  letter-spacing: 1.2px;
+}
+
+
+.forgot-header h2 {
+  margin:
+    0
+    0
+    8px;
+
+  color: var(--forgot-text);
+
+  font-size: 29px;
+
+  line-height: 1.12;
+
+  letter-spacing: -1.1px;
+}
+
+
+.forgot-header p {
+  max-width: 360px;
+
+  margin: 0;
+
+  color:
+    var(--forgot-muted);
+
+  font-size: 12px;
+
+  line-height: 1.6;
+}
+
+
+/* =====================================
+   FORM
+===================================== */
+
+.forgot-form {
+  animation:
+    forgotRightEnter
+    0.65s
+    0.28s
+    both;
+}
+
+
+.forgot-input-group {
+  margin-bottom: 18px;
+}
+
+
+.forgot-input-group > label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #38413e;
+
+  font-size: 11.5px;
+
+  font-weight: 600;
+}
+
+
+/* =====================================
+   PHONE INPUT
+===================================== */
+
+.forgot-phone-input {
+  width: 100%;
+  height: 52px;
+
+  display: flex;
+
+  align-items: center;
+
+  overflow: hidden;
+
+  border:
+    1px solid
+    var(--forgot-border);
+
+  border-radius: 15px;
+
+  background: #fdfefe;
+
+  transition:
+    border-color
+    180ms
+    var(--forgot-ease),
+
+    box-shadow
+    180ms
+    var(--forgot-ease),
+
+    transform
+    180ms
+    var(--forgot-ease);
+}
+
+
+.forgot-phone-input:hover {
+  border-color:
+    #bdcbc5;
+}
+
+
+.forgot-phone-input:focus-within {
+  border-color:
+    var(--forgot-green);
+
+  transform:
+    translateY(-2px);
+
+  box-shadow:
+    0 0 0 4px
+    rgba(39, 90, 73, 0.07),
+
+    0 8px 22px
+    rgba(39, 90, 73, 0.06);
+}
+
+
+.forgot-phone-input.phone-error {
+  border-color:
+    rgba(194, 75, 75, 0.55);
+}
+
+
+/* Country code */
+
+.country-code {
+  height: 100%;
+
+  display: flex;
+
+  align-items: center;
+
+  padding-left: 17px;
+
+  color: #35433e;
+
+  font-size: 12px;
+
+  font-weight: 600;
+}
+
+
+.phone-divider {
+  width: 1px;
+  height: 22px;
+
+  margin:
+    0
+    13px;
+
+  background: #e0e6e3;
+}
+
+
+/* Input */
+
+.forgot-phone-input input {
+  flex: 1;
+
+  min-width: 0;
+
+  height: 100%;
+
+  padding: 0;
+
+  border: 0;
+
+  outline: 0;
+
+  background:
+    transparent;
+
+  color:
+    var(--forgot-text);
+
+  font-family:
+    inherit;
+
+  font-size: 12.5px;
+
+  letter-spacing: 0.3px;
+}
+
+
+.forgot-phone-input input::placeholder {
+  color: #abb5b1;
+}
+
+
+/* Valid */
+
+.phone-valid {
+  width: 45px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  color: #2d8062;
+
+  animation:
+    validPop
+    0.25s
+    var(--forgot-ease);
+}
+
+
+.phone-valid svg {
+  width: 17px;
+  height: 17px;
+}
+
+
+@keyframes validPop {
+
+  from {
+    opacity: 0;
+
+    transform:
+      scale(0.5);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      scale(1);
+  }
+
+}
+
+
+/* =====================================
+   PHONE INFO
+===================================== */
+
+.phone-info-row {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 10px;
+
+  margin:
+    7px
+    3px
+    0;
+}
+
+
+.phone-info-row p {
+  margin: 0;
+
+  color: #949e99;
+
+  font-size: 9.5px;
+}
+
+
+.phone-counter {
+  flex-shrink: 0;
+
+  color: #a2aaa6;
+
+  font-size: 9px;
+}
+
+
+/* =====================================
+   SECURITY BOX
+===================================== */
+
+.forgot-security-box {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 10px;
+
+  margin-bottom: 18px;
+
+  padding:
+    12px 13px;
+
+  border:
+    1px solid
+    #dfeae5;
+
+  border-radius: 13px;
+
+  background:
+    #f3f8f6;
+}
+
+
+.security-shield {
+  flex-shrink: 0;
+
+  color:
+    var(--forgot-green);
+}
+
+
+.security-shield svg {
+  width: 17px;
+  height: 17px;
+}
+
+
+.forgot-security-box p {
+  margin: 0;
+
+  color: #717c77;
+
+  font-size: 10px;
+
+  line-height: 1.5;
+}
+
+
+/* =====================================
+   MESSAGES
+===================================== */
+
+.forgot-error,
+.forgot-success {
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  margin:
+    -3px
+    0
+    14px;
+
+  padding:
+    10px
+    12px;
+
+  border-radius: 11px;
+
+  animation:
+    forgotMessage
+    0.3s
+    ease;
+}
+
+
+@keyframes forgotMessage {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(-5px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+
+}
+
+
+.forgot-error {
+  border:
+    1px solid
+    #f0d7d7;
+
+  background:
+    #fff5f5;
+
+  color: #b95353;
+}
+
+
+.forgot-success {
+  border:
+    1px solid
+    #d6e9e0;
+
+  background:
+    #eff8f4;
+
+  color: #287458;
+}
+
+
+.message-symbol {
+  width: 20px;
+  height: 20px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background:
+    currentColor;
+
+  color: white;
+
+  font-size: 10px;
+
+  font-weight: 700;
+}
+
+
+.message-symbol svg {
+  width: 11px;
+  height: 11px;
+}
+
+
+.forgot-error p,
+.forgot-success p {
+  margin: 0;
+
+  font-size: 10px;
+}
+
+
+.forgot-success strong {
+  display: block;
+
+  margin-bottom: 2px;
+
+  font-size: 10.5px;
+}
+
+
+/* =====================================
+   SUBMIT BUTTON
+===================================== */
+
+.forgot-submit {
+  position: relative;
+
+  width: 100%;
+  height: 52px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  overflow: hidden;
+
+  border: 0;
+
+  border-radius: 15px;
+
+  background:
+    linear-gradient(
+      110deg,
+      #193f33,
+      #275a49,
+      #34705e,
+      #275a49,
+      #193f33
+    );
+
+  background-size:
+    300% 100%;
+
+  color: white;
+
+  font-family: inherit;
+
+  font-size: 12px;
+
+  font-weight: 650;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 10px 24px
+    rgba(39, 90, 73, 0.18);
+
+  animation:
+    forgotButtonGradient
+    5s
+    ease
+    infinite;
+
+  transition:
+    transform
+    180ms
+    var(--forgot-ease),
+
+    box-shadow
+    180ms
+    var(--forgot-ease);
+}
+
+
+@keyframes forgotButtonGradient {
+
+  0% {
+    background-position:
+      0% 50%;
+  }
+
+  50% {
+    background-position:
+      100% 50%;
+  }
+
+  100% {
+    background-position:
+      0% 50%;
+  }
+
+}
+
+
+/* Button shine */
+
+.forgot-submit::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -100%;
+
+  width: 50%;
+  height: 100%;
+
+  transform:
+    skewX(-20deg);
+
+  background:
+    linear-gradient(
+      110deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+
+  transition:
+    left
+    0.65s
+    var(--forgot-ease);
+}
+
+
+.forgot-submit:hover::before {
+  left: 140%;
+}
+
+
+.forgot-submit:hover {
+  transform:
+    translateY(-3px);
+
+  box-shadow:
+    0 15px 32px
+    rgba(39, 90, 73, 0.27);
+}
+
+
+.forgot-submit:active {
+  transform:
+    scale(0.98);
+}
+
+
+.forgot-submit:disabled {
+  opacity: 0.8;
+
+  cursor:
+    not-allowed;
+
+  transform: none;
+}
+
+
+/* =====================================
+   BUTTON ARROW
+===================================== */
+
+.forgot-arrow {
+  position: absolute;
+
+  right: 14px;
+
+  width: 29px;
+  height: 29px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background:
+    rgba(255, 255, 255, 0.11);
+
+  transition:
+    transform
+    180ms
+    var(--forgot-ease);
+}
+
+
+.forgot-arrow svg {
+  width: 14px;
+  height: 14px;
+}
+
+
+.forgot-submit:hover
+.forgot-arrow {
+  transform:
+    translateX(3px);
+}
+
+
+/* =====================================
+   LOADER
+===================================== */
+
+.forgot-loader {
+  width: 16px;
+  height: 16px;
+
+  border:
+    2px solid
+    rgba(255, 255, 255, 0.35);
+
+  border-top-color:
+    white;
+
+  border-radius: 50%;
+
+  animation:
+    forgotSpin
+    0.7s
+    linear
+    infinite;
+}
+
+
+@keyframes forgotSpin {
+
+  to {
+    transform:
+      rotate(360deg);
+  }
+
+}
+
+
+/* =====================================
+   FOOTER
+===================================== */
+
+.forgot-footer {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 6px;
+
+  margin-top: 25px;
+
+  padding-top: 18px;
+
+  border-top:
+    1px solid
+    #edf0ee;
+
+  color: #9ba49f;
+
+  font-size: 9px;
+}
+
+
+.forgot-footer svg {
+  width: 13px;
+  height: 13px;
+}
+
+
+/* =====================================
+   TABLET
+===================================== */
+
+@media (max-width: 850px) {
+
+  .forgot-page {
+    padding:
+      30px
+      18px;
+  }
+
+
+  .forgot-card {
+    max-width: 500px;
+
+    min-height: auto;
+
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .forgot-left {
+    display: none;
+  }
+
+
+  .forgot-right {
+    min-height: 600px;
+
+    padding:
+      50px;
+  }
+
+
+  .forgot-mobile-logo {
+    display: block;
+  }
+
+}
+
+
+/* =====================================
+   MOBILE
+===================================== */
+
+@media (max-width: 500px) {
+
+  .forgot-page {
+    align-items:
+      flex-start;
+
+    padding: 0;
+
+    background: white;
+  }
+
+
+  .forgot-card {
+    width: 100%;
+
+    border: 0;
+
+    border-radius: 0;
+
+    box-shadow: none;
+
+    animation: none;
+  }
+
+
+  .forgot-right {
+    min-height: 100vh;
+
+    justify-content:
+      flex-start;
+
+    padding:
+      30px
+      22px;
+  }
+
+
+  .forgot-mobile-logo {
+    margin-bottom:
+      45px;
+  }
+
+
+  .forgot-header h2 {
+    font-size: 27px;
+  }
+
+
+  .forgot-phone-input {
+    height: 51px;
+
+    border-radius: 14px;
+  }
+
+
+  .forgot-submit {
+    height: 51px;
+
+    border-radius: 14px;
+  }
+
+}
+
+
+/* =====================================
+   SMALL MOBILE
+===================================== */
+
+@media (max-width: 360px) {
+
+  .forgot-right {
+    padding:
+      27px
+      17px;
+  }
+
+
+  .forgot-header h2 {
+    font-size:
+      25px;
+  }
+
+}
+
+
+/* =====================================
+   REDUCED MOTION
+===================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration:
+      0.01ms !important;
+
+    animation-iteration-count:
+      1 !important;
+
+    transition-duration:
+      0.01ms !important;
+  }
+
+}
