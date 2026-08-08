@@ -1,30 +1,26 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
-// import VerifyEmail from './pages/auth/verfyemail'
-// import Forgetpassword from './pages/auth/Forgetpassword'
-// import Welcome from './pages/auth/welcome'
-// import Login from './pages/auth/login'
-// import Resetpassword from './pages/auth/Resetpassword'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+import Welcome from "./pages/auth/welcome";
+import Login from "./pages/auth/login";
+import VerifyEmail from "./pages/auth/verfyemail";
+import ResetPassword from "./pages/auth/Resetpassword";
+import Profile from "./pages/profile/profile";
+import ForgetPassword from "./pages/auth/Forgetpassword";
 function App() {
   return (
-    <>
-      {/* <Welcome /> */}
-      {/* <Login/> */}
-      {/* <Forgetpassword/> */}
-      {/* <Resetpassword/> */}
-      {/* <VerifyEmail/> */}
-    </>
-  )
+    <BrowserRouter>
+
+      <Routes>
+        <Route path="/" element={<Welcome />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/forget-password" element={<ForgetPassword />} />
+        <Route path="/verify-mail" element={<VerifyEmail />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
+      </Routes>
+
+    </BrowserRouter>
+  );
 }
 
-export default App
-
-  
-  
-
-
-
+export default App;

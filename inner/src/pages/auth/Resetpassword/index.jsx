@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Style4.css";
 
 export default function ResetPassword() {
+  const navigate = useNavigate();
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
@@ -65,6 +67,10 @@ export default function ResetPassword() {
     setMessage("Your password has been reset successfully.");
     setSuccess(true);
 
+    // Go to Profile page after 1.5 seconds
+    setTimeout(() => {
+      navigate("/login");
+    }, 1500);
     // Example:
     // navigate("/login");
   };
@@ -175,27 +181,23 @@ export default function ResetPassword() {
               {/* Strength bars */}
               <div className="strength-container">
                 <div
-                  className={`strength-bar ${
-                    strength >= 1 ? `active level-${strength}` : ""
-                  }`}
+                  className={`strength-bar ${strength >= 1 ? `active level-${strength}` : ""
+                    }`}
                 ></div>
 
                 <div
-                  className={`strength-bar ${
-                    strength >= 2 ? `active level-${strength}` : ""
-                  }`}
+                  className={`strength-bar ${strength >= 2 ? `active level-${strength}` : ""
+                    }`}
                 ></div>
 
                 <div
-                  className={`strength-bar ${
-                    strength >= 3 ? `active level-${strength}` : ""
-                  }`}
+                  className={`strength-bar ${strength >= 3 ? `active level-${strength}` : ""
+                    }`}
                 ></div>
 
                 <div
-                  className={`strength-bar ${
-                    strength >= 4 ? `active level-${strength}` : ""
-                  }`}
+                  className={`strength-bar ${strength >= 4 ? `active level-${strength}` : ""
+                    }`}
                 ></div>
               </div>
 
@@ -209,13 +211,12 @@ export default function ResetPassword() {
               <label htmlFor="confirmPassword">Confirm password</label>
 
               <div
-                className={`input-wrapper ${
-                  confirmPassword
+                className={`input-wrapper ${confirmPassword
                     ? passwordsMatch
                       ? "input-success"
                       : "input-error"
                     : ""
-                }`}
+                  }`}
               >
                 <span className="input-icon">
                   <LockIcon />
@@ -261,9 +262,8 @@ export default function ResetPassword() {
             {/* MESSAGE */}
             {message && (
               <div
-                className={`form-message ${
-                  success ? "success-message" : "error-message"
-                }`}
+                className={`form-message ${success ? "success-message" : "error-message"
+                  }`}
               >
                 <span>{success ? "✓" : "!"}</span>
                 {message}
@@ -369,5 +369,6 @@ function ArrowIcon() {
       <path d="M5 12h14" />
       <path d="m14 7 5 5-5 5" />
     </svg>
+    
   );
 }

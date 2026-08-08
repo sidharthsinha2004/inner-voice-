@@ -1,10 +1,11 @@
-
 import { useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Style1.css";
 
 import loginBg from "../../../assets/login-bg.jpeg";
 
 export default function Login() {
+  const navigate = useNavigate();
 
   const [activeTab, setActiveTab] = useState("login");
 
@@ -41,15 +42,38 @@ export default function Login() {
   /* ===============================
      NORMAL LOGIN
   =============================== */
-
-  const handleLogin = (e) => {
-
+  const handleLogin = async (e) => {
     e.preventDefault();
 
     console.log("Login submitted");
 
-  };
+    // ==========================
+    // Add your backend API here
+    // ==========================
 
+    /*
+    const response = await fetch("http://localhost:3000/api/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: e.target.email.value,
+        password: e.target.password.value,
+      }),
+    });
+  
+    const data = await response.json();
+  
+    if (!response.ok) {
+      alert(data.message);
+      return;
+    }
+    */
+
+    // Temporary navigation
+  navigate("/profile");
+  };
 
   /* ===============================
      SEND OTP
@@ -672,10 +696,10 @@ export default function Login() {
                 <button
                   type="button"
                   className="forgot-password"
+                  onClick={() => navigate("/forget-password")}
                 >
                   Forgot password?
                 </button>
-
               </div>
 
 
@@ -699,83 +723,83 @@ export default function Login() {
           {activeTab === "signup" &&
             signupStep === "phone" && (
 
-            <form
-              className="login-form"
-              onSubmit={handleSendOtp}
-            >
-
-              <div className="signup-step">
-
-                <span className="step active">
-                  1
-                </span>
-
-                <span className="step-line">
-                </span>
-
-                <span className="step">
-                  2
-                </span>
-
-                <span className="step-line">
-                </span>
-
-                <span className="step">
-                  3
-                </span>
-
-              </div>
-
-
-              <div className="form-group">
-
-                <label htmlFor="signupPhone">
-                  Phone number
-                </label>
-
-
-                <input
-                  type="tel"
-
-                  id="signupPhone"
-
-                  name="phone"
-
-                  placeholder="+91 98765 43210"
-
-                  value={phoneNumber}
-
-                  onChange={(e) =>
-                    setPhoneNumber(
-                      e.target.value
-                    )
-                  }
-
-                  required
-                />
-
-              </div>
-
-
-              <p className="signup-info">
-
-                We'll send you a one-time
-                verification code. Your phone
-                number stays private.
-
-              </p>
-
-
-              <button
-                type="submit"
-                className="continue-button"
+              <form
+                className="login-form"
+                onSubmit={handleSendOtp}
               >
-                Get OTP
-              </button>
 
-            </form>
+                <div className="signup-step">
 
-          )}
+                  <span className="step active">
+                    1
+                  </span>
+
+                  <span className="step-line">
+                  </span>
+
+                  <span className="step">
+                    2
+                  </span>
+
+                  <span className="step-line">
+                  </span>
+
+                  <span className="step">
+                    3
+                  </span>
+
+                </div>
+
+
+                <div className="form-group">
+
+                  <label htmlFor="signupPhone">
+                    Phone number
+                  </label>
+
+
+                  <input
+                    type="tel"
+
+                    id="signupPhone"
+
+                    name="phone"
+
+                    placeholder="+91 98765 43210"
+
+                    value={phoneNumber}
+
+                    onChange={(e) =>
+                      setPhoneNumber(
+                        e.target.value
+                      )
+                    }
+
+                    required
+                  />
+
+                </div>
+
+
+                <p className="signup-info">
+
+                  We'll send you a one-time
+                  verification code. Your phone
+                  number stays private.
+
+                </p>
+
+
+                <button
+                  type="submit"
+                  className="continue-button"
+                >
+                  Get OTP
+                </button>
+
+              </form>
+
+            )}
 
 
           {/* =================================
@@ -786,141 +810,141 @@ export default function Login() {
           {activeTab === "signup" &&
             signupStep === "otp" && (
 
-            <form
-              className="login-form otp-signup-form"
-              onSubmit={handleVerifyOtp}
-            >
+              <form
+                className="login-form otp-signup-form"
+                onSubmit={handleVerifyOtp}
+              >
 
-              <div className="signup-step">
+                <div className="signup-step">
 
-                <span className="step completed">
-                  ✓
-                </span>
+                  <span className="step completed">
+                    ✓
+                  </span>
 
-                <span className="step-line completed">
-                </span>
+                  <span className="step-line completed">
+                  </span>
 
-                <span className="step active">
-                  2
-                </span>
+                  <span className="step active">
+                    2
+                  </span>
 
-                <span className="step-line">
-                </span>
+                  <span className="step-line">
+                  </span>
 
-                <span className="step">
-                  3
-                </span>
+                  <span className="step">
+                    3
+                  </span>
 
-              </div>
+                </div>
 
 
-              <div className="phone-sent">
+                <div className="phone-sent">
 
-                <span>
-                  Code sent to
-                </span>
+                  <span>
+                    Code sent to
+                  </span>
 
-                <strong>
-                  {phoneNumber}
-                </strong>
+                  <strong>
+                    {phoneNumber}
+                  </strong>
 
-                <button
-                  type="button"
+                  <button
+                    type="button"
 
-                  onClick={() =>
-                    setSignupStep("phone")
+                    onClick={() =>
+                      setSignupStep("phone")
+                    }
+                  >
+                    Change
+                  </button>
+
+                </div>
+
+
+                <div
+                  className="signup-otp-inputs"
+
+                  onPaste={
+                    handleOtpPaste
                   }
                 >
-                  Change
-                </button>
 
-              </div>
+                  {otp.map(
+                    (number, index) => (
 
+                      <input
+                        key={index}
 
-              <div
-                className="signup-otp-inputs"
+                        ref={(element) => {
+                          otpInputs.current[index] =
+                            element;
+                        }}
 
-                onPaste={
-                  handleOtpPaste
-                }
-              >
+                        type="text"
 
-                {otp.map(
-                  (number, index) => (
+                        inputMode="numeric"
 
-                    <input
-                      key={index}
+                        autoComplete="one-time-code"
 
-                      ref={(element) => {
-                        otpInputs.current[index] =
-                          element;
-                      }}
+                        maxLength="1"
 
-                      type="text"
+                        value={number}
 
-                      inputMode="numeric"
+                        onChange={(e) =>
+                          handleOtpChange(
+                            e.target.value,
+                            index
+                          )
+                        }
 
-                      autoComplete="one-time-code"
+                        onKeyDown={(e) =>
+                          handleOtpKeyDown(
+                            e,
+                            index
+                          )
+                        }
 
-                      maxLength="1"
+                        autoFocus={
+                          index === 0
+                        }
 
-                      value={number}
+                        aria-label={
+                          `OTP digit ${index + 1}`
+                        }
+                      />
 
-                      onChange={(e) =>
-                        handleOtpChange(
-                          e.target.value,
-                          index
-                        )
-                      }
+                    )
+                  )}
 
-                      onKeyDown={(e) =>
-                        handleOtpKeyDown(
-                          e,
-                          index
-                        )
-                      }
-
-                      autoFocus={
-                        index === 0
-                      }
-
-                      aria-label={
-                        `OTP digit ${index + 1}`
-                      }
-                    />
-
-                  )
-                )}
-
-              </div>
+                </div>
 
 
-              <div className="signup-resend">
+                <div className="signup-resend">
 
-                <span>
-                  Didn't receive the code?
-                </span>
+                  <span>
+                    Didn't receive the code?
+                  </span>
+
+                  <button
+                    type="button"
+                    onClick={handleResendOtp}
+                  >
+                    Resend OTP
+                  </button>
+
+                </div>
+
 
                 <button
-                  type="button"
-                  onClick={handleResendOtp}
+                  type="submit"
+                  className="continue-button"
                 >
-                  Resend OTP
+                  Verify OTP
                 </button>
 
-              </div>
+              </form>
 
-
-              <button
-                type="submit"
-                className="continue-button"
-              >
-                Verify OTP
-              </button>
-
-            </form>
-
-          )}
+            )}
 
 
           {/* =================================
@@ -931,191 +955,191 @@ export default function Login() {
           {activeTab === "signup" &&
             signupStep === "password" && (
 
-            <form
-              className="login-form"
+              <form
+                className="login-form"
 
-              onSubmit={
-                handleCreateAccount
-              }
-            >
-
-              <div className="signup-step">
-
-                <span className="step completed">
-                  ✓
-                </span>
-
-                <span className="step-line completed">
-                </span>
-
-                <span className="step completed">
-                  ✓
-                </span>
-
-                <span className="step-line completed">
-                </span>
-
-                <span className="step active">
-                  3
-                </span>
-
-              </div>
-
-
-              {/* CREATE PASSWORD */}
-
-              <div className="form-group">
-
-                <label htmlFor="signupPassword">
-                  Create password
-                </label>
-
-
-                <div className="password-box">
-
-                  <input
-                    type={
-                      showSignupPassword
-                        ? "text"
-                        : "password"
-                    }
-
-                    id="signupPassword"
-
-                    name="signupPassword"
-
-                    placeholder="Create a strong password"
-
-                    minLength="8"
-
-                    required
-                  />
-
-
-                  <button
-                    type="button"
-
-                    className="eye-button"
-
-                    onClick={() =>
-                      setShowSignupPassword(
-                        !showSignupPassword
-                      )
-                    }
-                  >
-
-                    <svg
-                      width="18"
-                      height="18"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                    >
-
-                      <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z" />
-
-                      <circle
-                        cx="12"
-                        cy="12"
-                        r="3"
-                      />
-
-                    </svg>
-
-                  </button>
-
-                </div>
-
-              </div>
-
-
-              {/* CONFIRM PASSWORD */}
-
-              <div className="form-group">
-
-                <label htmlFor="confirmPassword">
-                  Confirm password
-                </label>
-
-
-                <div className="password-box">
-
-                  <input
-                    type={
-                      showConfirmPassword
-                        ? "text"
-                        : "password"
-                    }
-
-                    id="confirmPassword"
-
-                    name="confirmPassword"
-
-                    placeholder="Enter password again"
-
-                    minLength="8"
-
-                    required
-                  />
-
-
-                  <button
-                    type="button"
-
-                    className="eye-button"
-
-                    onClick={() =>
-                      setShowConfirmPassword(
-                        !showConfirmPassword
-                      )
-                    }
-                  >
-
-                    <svg
-                      width="18"
-                      height="18"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                    >
-
-                      <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z" />
-
-                      <circle
-                        cx="12"
-                        cy="12"
-                        r="3"
-                      />
-
-                    </svg>
-
-                  </button>
-
-                </div>
-
-              </div>
-
-
-              <p className="password-hint">
-
-                Use at least 8 characters for
-                a stronger password.
-
-              </p>
-
-
-              <button
-                type="submit"
-                className="continue-button"
+                onSubmit={
+                  handleCreateAccount
+                }
               >
-                Create anonymous identity
-              </button>
 
-            </form>
+                <div className="signup-step">
 
-          )}
+                  <span className="step completed">
+                    ✓
+                  </span>
+
+                  <span className="step-line completed">
+                  </span>
+
+                  <span className="step completed">
+                    ✓
+                  </span>
+
+                  <span className="step-line completed">
+                  </span>
+
+                  <span className="step active">
+                    3
+                  </span>
+
+                </div>
+
+
+                {/* CREATE PASSWORD */}
+
+                <div className="form-group">
+
+                  <label htmlFor="signupPassword">
+                    Create password
+                  </label>
+
+
+                  <div className="password-box">
+
+                    <input
+                      type={
+                        showSignupPassword
+                          ? "text"
+                          : "password"
+                      }
+
+                      id="signupPassword"
+
+                      name="signupPassword"
+
+                      placeholder="Create a strong password"
+
+                      minLength="8"
+
+                      required
+                    />
+
+
+                    <button
+                      type="button"
+
+                      className="eye-button"
+
+                      onClick={() =>
+                        setShowSignupPassword(
+                          !showSignupPassword
+                        )
+                      }
+                    >
+
+                      <svg
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                      >
+
+                        <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z" />
+
+                        <circle
+                          cx="12"
+                          cy="12"
+                          r="3"
+                        />
+
+                      </svg>
+
+                    </button>
+
+                  </div>
+
+                </div>
+
+
+                {/* CONFIRM PASSWORD */}
+
+                <div className="form-group">
+
+                  <label htmlFor="confirmPassword">
+                    Confirm password
+                  </label>
+
+
+                  <div className="password-box">
+
+                    <input
+                      type={
+                        showConfirmPassword
+                          ? "text"
+                          : "password"
+                      }
+
+                      id="confirmPassword"
+
+                      name="confirmPassword"
+
+                      placeholder="Enter password again"
+
+                      minLength="8"
+
+                      required
+                    />
+
+
+                    <button
+                      type="button"
+
+                      className="eye-button"
+
+                      onClick={() =>
+                        setShowConfirmPassword(
+                          !showConfirmPassword
+                        )
+                      }
+                    >
+
+                      <svg
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                      >
+
+                        <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z" />
+
+                        <circle
+                          cx="12"
+                          cy="12"
+                          r="3"
+                        />
+
+                      </svg>
+
+                    </button>
+
+                  </div>
+
+                </div>
+
+
+                <p className="password-hint">
+
+                  Use at least 8 characters for
+                  a stronger password.
+
+                </p>
+
+
+                <button
+                  type="submit"
+                  className="continue-button"
+                >
+                  Create anonymous identity
+                </button>
+
+              </form>
+
+            )}
 
 
           {/* =================================

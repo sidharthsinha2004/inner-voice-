@@ -1,6 +1,9 @@
-import './style.css';
+import { useNavigate } from "react-router-dom";
+import "./style.css";
 
 export default function Welcome() {
+    const navigate = useNavigate();
+
     return (
         <>
             {/* ================= NAVBAR ================= */}
@@ -19,9 +22,13 @@ export default function Welcome() {
                     </nav>
 
                     <div className="button">
-                        <a href="#create" className="btn">
+                        <button
+                            type="button"
+                            className="btn"
+                            onClick={() => navigate("/login")}
+                        >
                             Join anonymously
-                        </a>
+                        </button>
                     </div>
 
                 </div>
@@ -56,12 +63,13 @@ export default function Welcome() {
 
                         <div className="hero-button">
 
-                            <a
-                                href="#create"
+                            <button
+                                type="button"
                                 className="btn btn-primary"
+                                onClick={() => navigate("/login")}
                             >
                                 Create your identity
-                            </a>
+                            </button>
 
                             <a
                                 href="#feature"
@@ -747,12 +755,13 @@ export default function Welcome() {
                         Just a place to speak.
                     </p>
 
-                    <a
-                        href="#"
+                    <button
+                        type="button"
                         className="final-button"
+                        onClick={() => navigate("/login")}
                     >
                         Create your anonymous identity
-                    </a>
+                    </button>
 
                 </div>
 

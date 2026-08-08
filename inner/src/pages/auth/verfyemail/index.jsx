@@ -1,8 +1,10 @@
 import { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./style3.css";
 
 export default function VerifyEmail() {
   const OTP_LENGTH = 6;
+  const navigate = useNavigate();
 
   const [otp, setOtp] = useState(
     Array(OTP_LENGTH).fill("")
@@ -194,10 +196,13 @@ export default function VerifyEmail() {
 
       setSuccess(true);
 
+      // Go to Reset Password page after successful verification
+
+
     } catch (err) {
       setError(
         err.message ||
-          "Invalid verification code. Please try again."
+        "Invalid verification code. Please try again."
       );
     } finally {
       setLoading(false);
@@ -253,7 +258,7 @@ export default function VerifyEmail() {
     } catch (err) {
       setError(
         err.message ||
-          "Unable to resend verification code."
+        "Unable to resend verification code."
       );
     } finally {
       setResending(false);
@@ -437,9 +442,8 @@ export default function VerifyEmail() {
                         ? "one-time-code"
                         : "off"
                     }
-                    aria-label={`Verification digit ${
-                      index + 1
-                    }`}
+                    aria-label={`Verification digit ${index + 1
+                      }`}
                     onChange={(e) =>
                       handleChange(
                         index,
