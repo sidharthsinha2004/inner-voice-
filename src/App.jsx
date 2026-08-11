@@ -1,74 +1,44 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
-import Profile from "./pages/profile/Profile";
-import EditProfile from "./pages/profile/edit-profile/EditProfile";
-import Followers from "./pages/profile/followers/followers";
-import Following from "./pages/profile/following/Following";
+import { useAppData } from "./context/AppDataContext";
 
-import Communities from "./pages/communities/Communities";
-import CommunityDetails from "./pages/community-details/CommunityDetails";
-import MyCommunities from "./pages/my-communities/MyCommunities";
+import MainLayout from "./layouts/MainLayout";
+import LoggedOut from "./components/LoggedOut";
 
-function App() {
+import Home from "./pages/home";
+import Explore from "./pages/explore";
+import Search from "./pages/search";
+import Bookmarks from "./pages/bookmarks";
+import Profile from "./pages/profile";
+import CreatePost from "./pages/create-post";
+import Messages from "./pages/messages";
+import Communities from "./pages/communities";
+import Trending from "./pages/trending";
+import Settings from "./pages/settings";
+import NotFound from "./pages/not-found";
+
+export default function App() {
+  const { isAuthenticated } = useAppData();
+
+  if (!isAuthenticated) {
+    return <LoggedOut />;
+  }
 
   return (
-
-    <BrowserRouter>
-
-      <Routes>
-
-        {/* Profile */}
-
-        <Route
-          path="/profile"
-          element={<Profile />}
-        />
-
-        <Route
-          path="/edit-profile"
-          element={<EditProfile />}
-        />
-
-        <Route
-          path="/followers"
-          element={<Followers />}
-        />
-
-        <Route
-          path="/following"
-          element={<Following />}
-        />
-
-        {/* Communities */}
-
-        <Route
-          path="/communities"
-          element={<Communities />}
-        />
-
-        <Route
-          path="/community-details/:id"
-          element={<CommunityDetails />}
-        />
-
-        <Route
-          path="/my-communities"
-          element={<MyCommunities />}
-        />
-
-        {/* Default */}
-
-        <Route
-          path="*"
-          element={<Profile />}
-        />
-
-      </Routes>
-
-    </BrowserRouter>
-
+    <Routes>
+      <Route path="/" element={<MainLayout />}>
+        <Route index element={<Home />} />
+        <Route path="explore" element={<Explore />} />
+        <Route path="search" element={<Search />} />
+        <Route path="bookmarks" element={<Bookmarks />} />
+        <Route path="profile" element={<Profile />} />
+        <Route path="create-post" element={<CreatePost />} />
+        <Route path="messages" element={<Messages />} />
+        <Route path="communities" element={<Communities />} />
+        <Route path="trending" element={<Trending />} />
+        <Route path="settings" element={<Settings />} />
+        <Route path="*" element={<NotFound />} />
+      </Route>
+    </Routes>
   );
-
 }
-
-export default App;

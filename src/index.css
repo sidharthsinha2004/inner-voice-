@@ -1,110 +1,63 @@
-/* =========================
-   Google Font
-========================= */
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
 
-/* =========================
-   Undertone Design Tokens
-========================= */
+/* Enable class-based dark mode: toggling `dark` on <html> drives all dark: utilities */
+@custom-variant dark (&:where(.dark, .dark *));
 
+/*
+ * Brand accent variables — overwritten at runtime by ThemeContext based on
+ * the user's chosen color theme (see src/context/ThemeContext.jsx).
+ * Defaults below match the original "Forest" green theme.
+ */
 :root {
-
-  /* Primary - Pine */
-  --pine-700: #1F5A50;
-  --pine-600: #2D6A5E;
-  --pine-500: #3E8073;
-
-  /* Secondary - Dusk */
-  --dusk-700: #3B5B92;
-  --dusk-600: #4E6FA9;
-  --dusk-500: #6D89BD;
-
-  /* Accent - Ochre */
-  --ochre-600: #C38B2F;
-  --ochre-500: #D9A441;
-
-  /* Neutral - Stone */
-  --stone-900: #1F2933;
-  --stone-700: #4B5563;
-  --stone-500: #9CA3AF;
-  --stone-300: #D1D5DB;
-  --stone-100: #F5F5F4;
-  --white: #FFFFFF;
-
-  /* Border Radius */
-  --radius-input: 6px;
-  --radius-button: 10px;
-  --radius-card: 16px;
-  --radius-dialog: 22px;
-  --radius-sheet: 28px;
-  --radius-pill: 999px;
-
-  /* Shadows */
-  --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
-  --shadow-md: 0 6px 18px rgba(0,0,0,0.12);
-
-  /* Spacing */
-  --space-xs: 4px;
-  --space-sm: 8px;
-  --space-md: 16px;
-  --space-lg: 24px;
-  --space-xl: 32px;
-  --space-2xl: 48px;
-
-  /* Transition */
-  --transition: 0.3s ease;
+  --accent: #275a49;
+  --accent-hover: #1a3b31;
+  --accent-soft: #eef5f1;
+  --accent-soft-hover: #dcece3;
+  --accent-text-dark: #34d399;
 }
 
-/* =========================
-   Global Reset
-========================= */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+html {
+  scroll-behavior: smooth;
 }
 
-html{
-    scroll-behavior:smooth;
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-body{
-    font-family:'Work Sans',sans-serif;
-    background:var(--stone-100);
-    color:var(--stone-900);
-    line-height:1.6;
+/* Hide scrollbars for horizontally-scrolling rows (stories, filter pills) */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-/* =========================
-   Elements
-========================= */
-
-a{
-    text-decoration:none;
-    color:inherit;
+/* Small reusable fade-in for dropdowns / modals */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-in {
+  animation: fade-in 0.15s ease-out;
 }
 
-ul{
-    list-style:none;
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
 }
-
-img{
-    max-width:100%;
-    display:block;
+.animate-modal-in {
+  animation: modal-in 0.18s ease-out;
 }
-
-button{
-    font-family:inherit;
-    cursor:pointer;
-    border:none;
-    outline:none;
-    transition:var(--transition);
-}
-
-input{
-    font-family:inherit;
-    outline:none;
-    border:1px solid var(--stone-300);
-    border-radius:var(--radius-input);
-}                           

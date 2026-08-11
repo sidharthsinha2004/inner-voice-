@@ -1,63 +1,58 @@
 const communities = [
   {
     id: 1,
-    name: "Anxiety Support",
+    name: "Mind Matters",
+    description:
+      "A safe space to talk openly about mental health, therapy, and emotional wellbeing.",
     category: "Mental Health",
-    description: "A safe place to share experiences, seek advice, and support one another.",
-    members: "2.4K",
-    activeMembers: "542",
+    members: 12500,
     joined: true,
   },
-
   {
     id: 2,
-    name: "Career Growth",
-    category: "Career",
-    description: "Discuss career opportunities, interview tips, and professional growth.",
-    members: "1.8K",
-    activeMembers: "386",
-    joined: true,
+    name: "Tech Talks",
+    description:
+      "Developers, designers, and builders sharing what they're working on and learning.",
+    category: "Technology",
+    members: 8700,
+    joined: false,
   },
-
   {
     id: 3,
-    name: "Study Circle",
-    category: "Education",
-    description: "Learn together, share notes, solve doubts, and stay motivated.",
-    members: "3.1K",
-    activeMembers: "924",
+    name: "Daily Motivation",
+    description:
+      "Short, honest posts to help you get through the day — and maybe inspire someone else's.",
+    category: "Motivation",
+    members: 15300,
     joined: true,
   },
-
   {
     id: 4,
-    name: "Music Lounge",
-    category: "Music",
-    description: "Share playlists, discuss artists, and connect with music lovers.",
-    members: "980",
-    activeMembers: "247",
-    joined: true,
+    name: "Quiet Wanderers",
+    description:
+      "For people who find peace outdoors — hikes, forests, slow mornings, open skies.",
+    category: "Nature",
+    members: 6400,
+    joined: false,
   },
-
   {
     id: 5,
-    name: "Gaming Arena",
-    category: "Gaming",
-    description: "Find teammates, discuss games, and organize gaming sessions.",
-    members: "1.5K",
-    activeMembers: "618",
-    joined: true,
+    name: "Late Night Thoughts",
+    description:
+      "Confessions, ramblings, and the things that only make sense after midnight.",
+    category: "Confessions",
+    members: 21800,
+    joined: false,
   },
-
   {
     id: 6,
-    name: "Fitness Club",
-    category: "Fitness",
-    description: "Workout together, share fitness tips, and stay healthy.",
-    members: "1.2K",
-    activeMembers: "341",
-    joined: true,
-  }
+    name: "Career Crossroads",
+    description:
+      "Job changes, burnout, promotions, and everything in between — talked through honestly.",
+    category: "Career",
+    members: 9100,
+    joined: false,
+  },
 ];
 
 export default communities;
