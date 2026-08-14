@@ -8,8 +8,10 @@
       {
         "ignore": [
           "backdrop-filter",
-          "min-height: auto",
-          "mask-image"
+          "scrollbar-width",
+          "scrollbar-width: none",
+          "scrollbar-width: thin",
+          "scrollbar-color"
         ]
       }
     ]

@@ -9,7 +9,7 @@ import Home from "./pages/home";
 import Explore from "./pages/explore";
 import Search from "./pages/search";
 import Bookmarks from "./pages/bookmarks";
-import Profile from "./pages/profile";
+// import Profile from "./pages/profile";
 import CreatePost from "./pages/create-post";
 import Messages from "./pages/messages";
 import Communities from "./pages/communities";
@@ -31,7 +31,7 @@ export default function App() {
         <Route path="explore" element={<Explore />} />
         <Route path="search" element={<Search />} />
         <Route path="bookmarks" element={<Bookmarks />} />
-        <Route path="profile" element={<Profile />} />
+        {/* <Route path="profile" element={<Profile />} /> */}
         <Route path="create-post" element={<CreatePost />} />
         <Route path="messages" element={<Messages />} />
         <Route path="communities" element={<Communities />} />

@@ -13,7 +13,7 @@ export default function Bookmarks() {
   return (
     <div>
       <div className="flex items-center gap-2 mb-6">
-        <Bookmark className="text-[var(--accent)] dark:text-[var(--accent-text-dark)]" size={24} />
+        <Bookmark className="text-(--accent) dark:text-(--accent-text-dark)" size={24} />
         <div>
           <h1 className="text-2xl font-bold text-stone-900 dark:text-stone-50">
             Bookmarks
@@ -41,7 +41,7 @@ export default function Bookmarks() {
           </p>
           <button
             onClick={() => navigate("/")}
-            className="px-5 py-2.5 rounded-full text-sm font-semibold bg-[var(--accent)] text-white hover:bg-[var(--accent-hover)] transition"
+            className="px-5 py-2.5 rounded-full text-sm font-semibold bg-(--accent) text-white hover:bg-(--accent-hover) transition"
           >
             Browse the feed
           </button>

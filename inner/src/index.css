@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+/* Enable class-based dark mode: toggling `dark` on <html> drives all dark: utilities */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+ * Brand accent variables — overwritten at runtime by ThemeContext based on
+ * the user's chosen color theme (see src/context/ThemeContext.jsx).
+ * Defaults below match the original "Forest" green theme.
+ */
+:root {
+  --accent: #275a49;
+  --accent-hover: #1a3b31;
+  --accent-soft: #eef5f1;
+  --accent-soft-hover: #dcece3;
+  --accent-text-dark: #34d399;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hide scrollbars for horizontally-scrolling rows (stories, filter pills) */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Small reusable fade-in for dropdowns / modals */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-in {
+  animation: fade-in 0.15s ease-out;
+}
+
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+.animate-modal-in {
+  animation: modal-in 0.18s ease-out;
+}
